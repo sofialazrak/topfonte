@@ -1,0 +1,251 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}
+    Checkout
+{% endblock %}
+
+{%  block content %}
+{% include 'pages/header.html' %}
+
+<style>
+ .columns {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 0;
+}
+
+.left-div {
+  display: inline-block;
+  width: 600px;
+  padding: 20px;
+  border-radius: 3px;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.right-div {
+  display: inline-block;
+  max-width: 450px;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .left-div,
+  .right-div {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+
+</style>
+<div id="qodef-page-outer">
+
+    <div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom qodef--has-image qodef-image--parallax qodef-parallax">
+		<div class="qodef-m-inner">
+		    <div class="qodef-parallax-img-holder">
+                <div class="qodef-parallax-img-wrapper">
+                    <img width="1920" height="453" src="{% static 'images/cart.jpg' %}" class="qodef-parallax-img" alt="m" srcset="{% static 'images/cart.jpg' %} 1920w, {% static 'images/cart.jpg' %} 300w, {% static 'images/cart.jpg' %} 1024w, {% static 'images/cart.jpg' %} 768w, {% static 'images/cart.jpg' %} 1536w, {% static 'images/cart.jpg' %} 600w" sizes="(max-width: 1920px) 100vw, 1920px" /></div>
+                </div>
+            <div class="qodef-m-content qodef-content-grid qodef-parallax-content-holder">
+                <h1 class="qodef-m-title entry-title">Checkout</h1>
+            </div>	
+        </div>
+	</div>			
+    
+    <div id="qodef-page-inner" class="qodef-content-grid">
+        <main id="qodef-page-content" class="qodef-grid qodef-layout--template ">
+            <div class="qodef-grid-inner clear">
+                <div class="qodef-grid-item qodef-page-content-section qodef-col--12">
+                <div class="woocommerce-notices-wrapper"></div>
+                        
+                        <form action="." method="post" class="checkout woocommerce-checkout"  novalidate>
+                            
+                            <div class="col2-set" id="customer_details" class="columns" >
+                                
+                                <div class="left-div">
+                                    <div class="woocommerce-billing-fields">
+                                        <h3>Vos informations</h3>
+                                            <div class="woocommerce-billing-fields__field-wrapper"><!---
+                                                <p class="form-row form-row-first validate-required">
+                                                    <label class="">Nom&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="last_name" id="last_name"/>
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-last validate-required">
+                                                    <label>Prénom&nbsp;<abbr class="required" title="required">*</abbr>
+                                                    </label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="first_name" id="first_name" placeholder=""  value="" />
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide">
+                                                    <label>Société&nbsp;<abbr class="required" title="required">*</abbr>
+                                                    </label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="company" id="company" placeholder=""  value="" /></span>
+                                                </p>
+                                                
+                                                <p class="form-row form-row-wide address-field validate-required">
+                                                    <label >Adresse&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="address" id="address" value=""  />
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide address-field validate-required">
+                                                    <label >Ville&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="city" id="city" placeholder=""  value=""  />
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide address-field validate-required validate-postcode">
+                                                    <label>Code Postal&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="postcode" id="postcode" value="" /></span>
+                                                </p>
+                                                <p class="form-row form-row-wide address-field validate-required validate-postcode">
+                                                    <label>Pays&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text " name="country" id="country" value="" /></span>
+                                                </p>
+                                                <p class="form-row form-row-wide validate-required validate-phone">
+                                                    <label for="billing_phone" class="">Téléphone/GSM&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="tel" class="input-text " name="phone" id="phone" placeholder=""  value=""  /></span>
+                                                </p>
+                                                <p class="form-row form-row-wide validate-required validate-email">
+                                                    <label for="billing_email" class="">Adresse Mail&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <input type="email" class="input-text " name="email" id="email" value="" />
+                                                    </span>
+                                                </p>
+                                            -->
+                                            <style>.error {
+ 
+                                                color: #ff0000;
+                                                font-size: 16px;
+                                                font-weight: 400;
+                                                }
+                                                </style>
+                                                {% csrf_token %}
+                                              
+                                                
+                                                        <div class="error">{{ form.last_name.errors }}</div>
+                                                        {{ form.last_name }}
+
+                                                        <div class="error">{{ form.first_name.errors }}</div>
+                                                        {{ form.first_name }}
+                                                     
+                                                        <div class="error">{{ form.company.errors }}</div>
+                                                        {{ form.company }}
+
+                                                        <div class="error">{{ form.address.errors }}</div>
+                                                        {{ form.address }}
+
+                                                        <div class="error">{{ form.city.errors }}</div>
+                                                        {{ form.city }}
+
+                                                        <div class="error">{{ form.postcode.errors }}</div>
+                                                        {{ form.postcode }}
+
+                                                        <div class="error">{{ form.country.errors }}</div>
+                                                        {{ form.country }}
+
+                                                        <div class="error">{{ form.phone.errors }}</div>
+                                                        {{ form.phone }} 
+                                                    
+                                                        <div class="error">{{ form.email.errors }}</div>
+                                                        {{ form.email }}
+                                                    
+                                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                <div class="right-div right-text">
+                                    <div class="woocommerce-shipping-fields"></div>
+                                    <h3 id="order_review_heading">Votre demande de devis</h3>
+                                    <div id="order_review" class="woocommerce-checkout-review-order">
+                                        <table class="shop_table woocommerce-checkout-review-order-table">
+                                            <thead>
+                                                <tr style="border-left: none;
+                                                border-right: none;
+                                                border-top: none">
+                                                    <th class="product-name" style="padding: 15px 0 15px 5px;
+                                                    vertical-align: middle;
+                                                    text-align: left;
+                                                    border: 0; font-family: Muli, sans-serif;
+                font-weight: 600;
+                color: #101010;
+                font-size: 20px;
+                line-height: 1.25em; width:80% ">Produit</th>
+                                                    <th class="product-total" style="padding: 15px 0 15px 5px;
+                                                    vertical-align: middle;
+                                                    text-align: left;
+                                                    border: 0; font-family: Muli, sans-serif;
+                font-weight: 600;
+                color: #101010;
+                font-size: 20px;
+                line-height: 1.25em">Quantité</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for item in cart %}
+                                                <tr class="cart_item" style="border-left: none;
+                                                border-right: none;
+                                                border-top: none, border-bottom: 1px">
+                                                    <td class="product-name" style="padding: 15px 0 15px 5px;
+                                                    vertical-align: middle;
+                                                    text-align: left;
+                                                    border: 0; line-height: 1em; width: 30px">{{item.product.product}} - {{ item.product.reference }}&nbsp;</td>
+                                                    <td class="product-quantity" style="padding: 15px 0 15px 5px;
+                                                    vertical-align: middle;
+                                                    text-align: left;
+                                                    border: 0; line-height: 1em; width: 30px">x {{ item.quantity }}</td>
+                                                </tr>
+                                                {% endfor %}            
+                                                </tbody>
+                                        </table>
+                                        <p style="margin-top:20px">
+                                            <input type="submit" value="Envoyer la demande">
+                                            <a class="button wc-backward" href='{% url "pages:landing" %}'  style="background-color: black; position: relative;
+                                            display: inline-block;
+                                            vertical-align: middle;
+                                            width: 180px;
+                                            margin: 0;
+                                            font-family: Muli, sans-serif;
+                                            font-size: 15px;
+                                            line-height: 2em;
+                                            font-weight: 600;
+                                            text-decoration: none;
+                                            border-radius: 0;
+                                            outline: 0;
+                                            -webkit-box-sizing: border-box;
+                                            box-sizing: border-box;
+                                            -webkit-transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+                                            -o-transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+                                            transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+                                            padding: 16px 29px 17px 30px;
+                                            color: #fff;
+                                            border: 1px solid transparent;
+                                            cursor: pointer; margin-left: 5px;">Retour sur le site</a>
+                                            {%  csrf_token %}	
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>	
+                    </div>   
+                </div>
+            </main>
+                                    
+        </div><!-- close #qodef-page-inner div from header.php -->
+    </div><!-- close #qodef-page-outer div from header.php -->
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% load static %}
+
+<body class="cbp-spmenu-push html front not-logged-in no-sidebars page-node i18n-fr">
+
+    <div id="qodef-page-wrapper" class="">
+    
+    <div id="qodef-top-area" >
+
+      <div class="qodef-top-area-left">
+        <div id="text-2" class="widget widget_text qodef-top-bar-widget"> 
+          <div class="textwidget"><p style="font-family: Muli, sans-serif;
+  font-weight: 600;">Tel: +(212) 661 070 182</p>
+          </div>
+        </div>
+        <div id="stal_core_separator-7" class="widget widget_stal_core_separator qodef-top-bar-widget">
+          <div class="qodef-shortcode qodef-m  qodef-separator clear qodef-position--center">
+            <div class="qodef-m-line" style="border-color: #ffffff;border-style: solid;width: 25px;border-bottom-width: 1px"></div>
+          </div>
+        </div>
+        <div id="text-3" class="widget widget_text qodef-top-bar-widget"> 
+          <div class="textwidget"><p style="font-family: Muli, sans-serif;
+  font-weight: 600;">Fax: +(212) 522 397 058</p>
+          </div>
+        </div>
+        <div id="stal_core_separator-8" class="widget widget_stal_core_separator qodef-top-bar-widget">
+          <div class="qodef-shortcode qodef-m  qodef-separator clear qodef-position--center">
+            <div class="qodef-m-line" style="border-color: #ffffff;border-style: solid;width: 25px;border-bottom-width: 1px"></div>
+          </div>
+        </div>
+        <div id="text-4" class="widget widget_text qodef-top-bar-widget"> 
+          <div class="textwidget"><p style="font-family: Muli, sans-serif;
+  font-weight: 600;"><a href="mailto:info@top-fonte.com">Email: info@top-fonte.com</a></p>
+          </div>
+        </div> 
+      </div>
+      
+      <div class="qodef-top-area-right">
+        <div id="text-7" class="widget widget_text qodef-top-bar-widget"> 
+          <div class="textwidget"><p style="font-family: Muli, sans-serif;
+  font-weight: 600;">Ajoutez les produits qui vous intéressent au panier et demandez un budget en ligne !</p>
+          </div>
+        </div> 
+      </div>
+  
+  </div>
+
+
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Aller au contenu principal</a>
+  </div>
+
+  <nav id="main_nav" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" >
+    <h2 class="element-invisible">Menu principal</h2>
+    <ul id="main-menu-links" class="links clearfix" >
+      <li class="active"><a href="{% url 'pages:landing' %}" class="active">Accueil</a></li>
+      <li><a href="{% url 'shop:product_list_by_category' 'voirie-en-fonte-ductile' %}">Voirie</a></li>
+      <li><a href="{% url 'shop:product_list_by_category' 'eau-potable' %}">Eau Potable</a></li>
+      <li><a href="{% url 'shop:product_list_by_category' 'mobilier-urbain' %}">Mobilier Urbain</a></li>
+      <li ><a href="" target='blank'>Catalogue</a></li>
+      <li class="last"><a href="{% url 'pages:contact' %}">Nous contacter</a></li>
+    </ul>    
+  </nav>
+
+
+
+
+<div id="page-wrapper">
+
+
+  <div id="header">
+
+  <div class="container" >
+
+    <div id="header_left">
+      <a href="/" title="Accueil" rel="home" id="logo">
+        <img src="{% static 'images/logo-header.jpg'%}" alt="Accueil" width="245" height="53" />
+      </a>
+    </div>
+
+    <div id="header_right">
+
+
+
+      <div class="region region-header">
+        <div id="block-locale-language" class="block block-locale">
+          <div class="content">
+            <div class="widget widget_stal_core_woo_dropdown_cart" data-area="custom-shop-widgets"> 
+              <div class="qodef-woo-dropdown-cart qodef-m" style="padding: 0 0 0 0">
+                <div class="qodef-woo-dropdown-cart-inner qodef-m-inner">
+                  <a itemprop="url" class="qodef-m-opener" href="{% url 'cart:cart_detail' %}">
+                    <span class="qodef-m-opener-icon"><span class="qodef-icon-ionicons ion-md-cart" style="color: black"></span></span>
+                      {% with total_items=cart|length %}
+                          <span class="qodef-m-opener-count" >
+                              {{ total_items }}
+                          </span>
+                      {% endwith %}
+                    </span>
+                  </a>
+                 </div>
+</div> </div>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+  
+      <div id="trigger_menu">
+        <div class="hamburger"><span></span></div>
+        <small>Menu</small>
+      </div>
+
+       
+    </div>
+
+    <div class="clear"></div>  
+
+  </div>
+
+</div>
+
+
+
+
+

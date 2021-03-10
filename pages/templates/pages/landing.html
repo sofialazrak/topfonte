@@ -1,0 +1,210 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <body class="cbp-spmenu-push html front not-logged-in no-sidebars page-node i18n-fr">
+
+        <div id="skip-link">
+          <a href="#main-content" class="element-invisible element-focusable">Aller au contenu principal</a>
+        </div>
+      
+        <nav id="main_nav" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" >
+          <h2 class="element-invisible">Menu principal</h2>
+          <ul id="main-menu-links" class="links clearfix" >
+            <li class="active"><a href="{% url 'pages:landing' %}" class="active">Accueil</a></li>
+            <li><a href="{% url 'shop:product_list_by_category' 'voirie-en-fonte-ductile' %}">Voirie</a></li>
+            <li><a href="{% url 'shop:product_list_by_category' 'eau-potable' %}">Eau Potable</a></li>
+            <li><a href="{% url 'shop:product_list_by_category' 'mobilier-urbain' %}">Mobilier Urbain</a></li>
+            <li ><a href="" target='blank'>Catalogue</a></li>
+            <li class="last"><a href="{% url 'pages:contact' %}">Nous contacter</a></li>
+          </ul>    
+        </nav>
+      
+      
+      
+      <div id="page-wrapper">
+      
+        <div id="page_home">
+      
+          <div id="content_home" >
+      
+            <div class="region region-content-home">
+          
+              <div class="block block-views">
+      
+          
+                <div class="content">
+          
+                  <div class="view view-home-page-blocks">
+            
+                    <div class="block-home showUp">
+                      <div class="bg type-logo">
+                        <a href="/"><img src="{% static 'images/logo-home.jpg' %}" /></a>
+                        <img class="blank" src="{% static 'images/blank.png' %}" />
+                      </div>
+                    </div> 
+        
+            
+                    <div class="block-home block-num-0 first odd" >
+                      <div class="bg type-link color-orange">
+                        <div class="detail">
+                          <div class="inside">
+                            <h3>Voirie</h3>
+                            <div class="text">En Fonte Ductile</div>
+                            <a href="{% url 'shop:product_list_by_category' 'voirie-en-fonte-ductile' %}">Découvrir</a> 
+                          </div>  
+                        </div>
+                        <img class="blank" src="{% static 'images/blank.png' %}" />
+                      </div>      
+                    </div>
+                    
+      
+                    <div class="block-home block-num-1 even">
+                      <div class="bg type-img">
+                        <img src="{% static 'images/img1.png' %}" width="330" height="330" alt="" />
+                      </div>    
+                    </div>
+                
+                    <div class="block-home block-num-2 odd">
+                      <div class="bg type-link color-dark" >
+                        <div class="detail">
+                          <div class="inside">
+                            <h3>Eau Potable</h3>
+                              <div class="text">
+                                Adduction
+                              </div>
+                              <a href="{% url 'shop:product_list_by_category' 'eau-potable' %}">Découvrir</a> 
+                          </div>  
+                        </div>
+                        <img class="blank" src="{% static 'images/blank.png' %}" />
+                      </div>      
+                    </div>
+      
+                  <div class="block-home block-num-3 even">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img4.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+                
+                  <div class="block-home block-num-4 odd">
+                    <div class="bg type-link color-orange" >
+                      <div class="detail">
+                        <div class="inside">
+                          <h3>Mobilier Urbain</h3>
+                          <div class="text">
+                            En Fonte Ductile
+                          </div>
+                          <a href="{% url 'shop:product_list_by_category' 'mobilier-urbain' %}">E">Découvrir</a> 
+                        </div>  
+                      </div>
+                      <img class="blank" src="{% static 'images/blank.png' %}" />
+                    </div>      
+                  </div>
+                
+                  <div class="block-home block-num-5 even">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img5.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+                
+                  <div class="block-home block-num-6 odd">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img14.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+      
+                  <div class="block-home block-num-7 even">
+                    <div class="bg type-link color-dark" >
+                      <div class="detail">
+                        <div class="inside">
+                          <h3>Catalogue</h3>
+                          <div class="text">
+                            Fiches Techniques
+                          </div>
+                          <a href="">Consulter</a> 
+                        </div>  
+                      </div>
+                      <img class="blank" src="{% static 'images/blank.png' %}" />
+                    </div>      
+                  </div>
+                
+                  <div class="block-home block-num-8 odd">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img9.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+                
+                  <div class="block-home block-num-9 even">
+                    <div class="bg type-link color-orange" >
+                      <div class="detail">
+                        <div class="inside">
+                          <h3>Nous Contacter</h3>
+                          <div class="text">Devis, Informations</div>
+                          <a href="{% url 'pages:contact' %}">Contact</a> 
+                        </div>  
+                      </div>
+                      <img class="blank" src="{% static 'images/blank.png' %}" />
+                    </div>      
+                  </div>
+                
+                  <div class="block-home block-num-10 odd">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img11.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+      
+                  <div class="block-home block-num-11 even">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img10.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+                
+                  <div class="block-home block-num-12 odd">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img13.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+                
+                  <div class="block-home block-num-13 even">
+                    <div class="bg type-img">
+                      <img src="{% static 'images/img12.jpg' %}" width="330" height="330" alt="" />
+                    </div>    
+                  </div>
+      
+                  
+            
+                </div>  
+              </div>
+            </div>
+        </div>
+              
+      
+              </div> <!-- /#content --> 
+      
+              <div id="sidebar_home" style="font-family: Muli, sans-serif;
+        font-weight: 600;">
+                <div id="trigger_menu">
+                  <div class="hamburger"><span></span></div>
+                  <small>Menu</small>
+                </div>
+                <div class="clear"></div>  
+              </div>
+      
+      
+      
+        </div><!-- /#page -->
+       </div> <!--/#page-wrapper -->
+      
+      
+      </div>
+      
+      
+      
+      
+      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+      </body>
+
+
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}
+    Votre panier
+{% endblock %}
+
+{%  block content %}
+{% include 'pages/header.html' %}
+
+
+
+<div id="qodef-page-outer">
+    <div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom qodef--has-image qodef-image--parallax qodef-parallax">
+		<div class="qodef-m-inner">
+		    <div class="qodef-parallax-img-holder">
+                <div class="qodef-parallax-img-wrapper">
+                    <img width="1920" height="453" src="{% static 'images/cart.jpg' %}" class="qodef-parallax-img" alt="m" srcset="{% static 'images/cart.jpg' %} 1920w, {% static 'images/cart.jpg' %} 300w, {% static 'images/cart.jpg' %} 1024w, {% static 'images/cart.jpg' %} 768w, {% static 'images/cart.jpg' %} 1536w, {% static 'images/cart.jpg' %} 600w" sizes="(max-width: 1920px) 100vw, 1920px" /></div>
+                </div>
+            <div class="qodef-m-content qodef-content-grid qodef-parallax-content-holder">
+                <h1 class="qodef-m-title entry-title">Votre Panier</h1>
+            </div>	
+        </div>
+	</div>			
+    <div id="qodef-page-inner" class="qodef-content-grid" style="margin-top:30px">
+        <main id="qodef-page-content" class="qodef-grid qodef-layout--template ">
+            <div class="qodef-grid-inner clear">
+                <div class="qodef-grid-item qodef-page-content-section qodef-col--12">
+                    <div class="woocommerce">
+                        <div id="qodef-woo-page" class="qodef--cart"><div class="woocommerce-notices-wrapper"></div>
+
+                        {% if cart|length > 0 %}
+                        <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                                <thead>
+                                    <tr style="border-left: none;
+                                    border-right: none;
+                                    border-top: none">
+                                        <th class="product-remove" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 20px;
+	line-height: 1.25em">&nbsp;</th>
+                                        <th class="product-thumbnail" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 20px;
+	line-height: 1.25em">&nbsp;</th>
+                                        <th class="product-name" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 20px;
+	line-height: 1.25em">Produit</th>
+                                        <th class="product-name" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 20px;
+	line-height: 1.25em">Type</th>
+                                        <th class="product-quantity" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 20px;
+	line-height: 1.25em">Quantité</th>
+                
+                                    </tr>
+                                </thead>
+                                {% for item in cart %}
+                                <tbody>
+                                    <tr class="woocommerce-cart-form__cart-item cart_item" style="border-left: none;
+                                    border-right: none;
+                                    border-top: none, border-bottom: 1px">
+                                        <td class="product-remove" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; line-height: 1em; width: 30px">
+                                            <a href="{% url 'cart:cart_remove' item.product.id %}" class="remove" aria-label="Remove this item">&times;</a>						
+                                        </td>
+                                        <td class="product-thumbnail" style="width:200px; padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; line-height: 1em; padding-right: 20px">
+                                            <a href="{{ item.product1.get_absolute_url }}"><img width="500" height="400" src="{{ item.product1.image.url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="m" /></a>					
+                                        </td>
+                                        <td class="product-name" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; font-family: Muli, sans-serif;
+	font-weight: 600;
+	color: #101010;
+	font-size: 16px;
+	line-height: 1.08em">
+                                            {{ item.product.product }}					
+                                        </td>
+                                        <td class="product-name" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; line-height: 1em">
+                                            {{ item.product.reference }}					
+                                        </td>
+                                        <!-- <td class="product-price">
+                                            <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>{{ item.price }}
+                                            </span>						
+                                        </td> -->
+                                        <td class="product-quantity" style="padding: 15px 0 15px 5px;
+                                        vertical-align: middle;
+                                        text-align: left;
+                                        border: 0; line-height: 1em; width: 300px">
+                                            <div class="qodef-quantity-buttons quantity">
+                                                <label class="screen-reader-text">Quantité</label>
+                                                <span class="qodef-quantity-minus">
+                                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 13" style="enable-background:new 0 0 16 13;" xml:space="preserve"><g><path class="st0" d="M13.8,2.8l0.7,0.8l-6.2,6.7L2.1,3.6l0.7-0.8l5.5,5.9L13.8,2.8z"/></g></svg>
+                                                </span>
+                                                <form action="{% url 'cart:cart_add' %}" method="post">
+                                            
+                                                <input
+                                                    type="text"
+                                                    id="quantity_603e3d0f4ea6b"
+                                                    class="input-text qty text qodef-quantity-input"
+                                                    data-step="1"
+                                                    data-min="0"
+                                                    data-max=""
+                                                    name="quantity"
+                                                    value="{{item.quantity}}"
+                                                    title="Qty"
+                                                    size="4"
+                                                    inputmode="numeric" />
+                                                <span class="qodef-quantity-plus">
+                                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 13" style="enable-background:new 0 0 16 13;" xml:space="preserve"><g><path class="st0" d="M13.5,10.3L8,4.4l-5.5,5.9L1.8,9.4L8,2.8l6.3,6.7L13.5,10.3z"/></g></svg>
+                                                </span>
+                                            </div>
+                                                <input type="hidden" name="product_type" value="{{item.product.id}}">
+                                                
+                                                <input type="submit" class="button" name="update" value="Mettre à jour" style="margin-left:20px">
+                                           
+
+                            
+                            {% csrf_token %}
+                        </form>
+
+                                        </td>
+                                        <!-- <td class="product-subtotal" data-title="Subtotal">
+                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{item.total_price}}</span>						
+                                        </td> -->
+                                    </tr>
+                                    {%  endfor %}
+                                    
+                                </tbody>
+                            </table>
+
+                            <div style="padding: 20px 20px 20px 20px;" align= right >
+                                <a href='{% url "shop:product_list_by_category" product1.category.parent_category.slug %}' class="button" style="background-color: black;">Continuer sur le site</a>
+                                <a href="{% url 'orders:order_create' %}" class="button">Demander un devis</a>
+                            </div>
+                        
+                        {% else %}
+                        <p class="cart-empty woocommerce-info" style="font-family: Muli, sans-serif;
+                        font-weight: 600;
+                        color: #101010;
+                        font-size: 32px;
+                        line-height: 1.1em;
+                        text-align: center;
+padding-top: 50px;
+	padding-top: 100px 0 50px 18px;
+	margin-bottom: 30px;
+	
+	">Votre panier est vide</p>	
+                        <p class="return-to-shop" style="margin: 50px 0 
+                        100px 0;
+                        text-align: center">
+                            <a class="button wc-backward" href="{% url 'pages:landing'%}">
+                                Retour au site		
+                            </a>
+                        </p>
+                        {% endif %}
+
+                        
+                    </div>
+                </div>
+            </div>	
+        </div>
+    </main>
+</div><!-- close #qodef-page-inner div from header.php -->
+</div><!-- close #qodef-page-outer div from header.php -->
+    
+    
+{% endblock %}

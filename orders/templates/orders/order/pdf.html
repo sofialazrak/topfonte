@@ -1,0 +1,71 @@
+{% load i18n %}
+<html>
+<body>
+<h1>My Shop</h1>
+<p>
+    Invoice # {{ order.id }}<br>
+    <span class="secondary">
+      {{ order.created|date:"M d, Y" }}
+    </span>
+</p>
+
+<h3>Bill to</h3>
+<p>
+    {{ order.first_name }} {{ order.last_name }}<br>
+    {{ order.company }}<br>
+    {{ order.phone }}<br>
+    {{ order.email }}<br>
+    {{ order.address }}<br>
+    {{ order.postcode }}, {{ order.city }}<br>
+    {{ order.country }}
+</p>
+
+<h3>Items bought</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Product Type</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in order.items.all %}
+        <tr class="row{% cycle "1" "2" %}">
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product_type }}</td>
+            <td class="num">${{ item.price }}</td>
+            <td class="num">{{ item.quantity }}</td>
+            <td class="num">${{ item.get_cost }}</td>
+        </tr>
+    {% endfor %}
+    {% if order.coupon %}
+    <!-- <tr class="row">
+        <td colspan="3">Discount</td>
+        <td class="num">- ${{ order.get_discount|floatformat:"2" }}</td>
+    </tr> -->
+    <tr class="subtotal">
+      <td colspan="4">Subtotal</td>
+      <td class="num">${{ order.get_total_price|floatformat:"2" }}</td>
+  </tr>
+  <tr>
+      <td colspan="4">"{{ order.coupon.code }}" coupon ({{ order.coupon.discount }}% off)</td>
+      <td class="num neg">
+          - ${{ order.get_discount|floatformat:"2" }}
+      </td>
+  </tr>
+    {% endif %}
+    <tr class="total">
+        <td colspan="4">Total</td>
+        <td class="num">${{ order.get_total_cost|floatformat:"2" }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<span class="{% if order.paid %}paid{% else %}pending{% endif %}">
+    {% if order.paid %}Paid{% else %}Pending payment {%endif %}
+  </span>
+</body>
+</html>

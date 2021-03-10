@@ -1,0 +1,58 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}
+    Merci
+{% endblock %}
+
+{%  block content %}
+{% include 'pages/header.html' %}
+
+<div id="qodef-page-outer">
+
+    <div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom qodef--has-image qodef-image--parallax qodef-parallax">
+		<div class="qodef-m-inner">
+		    <div class="qodef-parallax-img-holder">
+                <div class="qodef-parallax-img-wrapper">
+                    <img width="1920" height="453" src="{% static 'images/cart.jpg' %}" class="qodef-parallax-img" alt="m" srcset="{% static 'images/cart.jpg' %} 1920w, {% static 'images/cart.jpg' %} 300w, {% static 'images/cart.jpg' %} 1024w, {% static 'images/cart.jpg' %} 768w, {% static 'images/cart.jpg' %} 1536w, {% static 'images/cart.jpg' %} 600w" sizes="(max-width: 1920px) 100vw, 1920px" /></div>
+                </div>
+            <div class="qodef-m-content qodef-content-grid qodef-parallax-content-holder">
+                <h1 class="qodef-m-title entry-title">Checkout</h1>
+            </div>	
+        </div>
+	</div>			
+    
+    <div id="qodef-page-inner" class="qodef-content-grid">
+        <main id="qodef-page-content" class="qodef-grid qodef-layout--template ">
+            <div class="qodef-grid-inner clear">
+                <div class="qodef-grid-item qodef-page-content-section qodef-col--12">
+                    <div class="woocommerce-notices-wrapper"></div>
+
+                    <h1>Votre demande de devis a bien été envoyée</h1>
+                    <div class="woocommerce-NoticeGroup woocommerce-NoticeGroup-checkout" style="display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: reverse;
+                    -ms-flex-direction: column-reverse;
+                    flex-direction: column-reverse;
+                    -webkit-box-align: start;
+                    -ms-flex-align: start;
+                    align-items: flex-start;
+                    padding: 20px 30px 18px;
+                    margin-bottom: 30px;
+                    border: 1px solid #e1e1e1;
+                    position: relative">
+                        
+                                <p>Nous accusons bonne réception de votre demande de devis n° <strong>D-{{ order_id }} du {% now "SHORT_DATETIME_FORMAT" %}</strong>. 
+                                Nous vous contacterons dans les plus brefs délais </p>
+                                <p>Nous vous remercions de votre confiance.</p>
+                           
+                    </div>    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+        
+{% endblock %}
